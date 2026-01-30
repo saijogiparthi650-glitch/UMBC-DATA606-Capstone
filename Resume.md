@@ -1,6 +1,6 @@
 # Sai Vara Prasad Jogiparthi
 
-<img src="photo.jpeg" alt="Sai Vara Prasad Jogiparthi" width="150" />
+<img src="docs/photo.jpeg" alt="Sai Vara Prasad Jogiparthi" width="500" />
 
 📍 Baltimore, MD  
 📞 +1 (248) 843-7974  
@@ -73,11 +73,3 @@ Data Science graduate student at **UMBC** with a strong computer science backgro
 - Object-Oriented Programming  
 - Exploratory Data Analysis  
 - Statistical Methods for Data Science  
-
----
-
-## Additional Links
-
-- 📞 Phone: [tel:+12488437974](tel:+12488437974)  
-- 📧 Email: [mailto:saijogiparthi650@gmail.com](mailto:saijogiparthi650@gmail.com)  
-- 🔗 GitHub: https://github.com/saijogiparthi650-glitch
