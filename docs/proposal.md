@@ -1,7 +1,7 @@
 # 1. Title and Author
 
 ## Project Title  
-**Predicting Emergency Department Wait Times Using CMS Hospital Performance Data**
+**Credit Card Default Risk Prediction using ML**
 
 Prepared for UMBC Data Science Master Degree Capstone  
 Instructor: Dr. Chaojie Wang  
@@ -9,28 +9,31 @@ Instructor: Dr. Chaojie Wang
 **Author:** Sai Vara Prasad Jogiparthi  
 
 **GitHub Repository:**  
-https://github.com/saijogiparthi650-glitch/UMBC-DATA606-Capstone
+https://github.com/saijogiparthi650-glitch/UMBC-DATA606-Capstone  
 
 **LinkedIn Profile:**  
 https://www.linkedin.com/in/sai-vara-prasad-jogiparthi/
-
 
 ---
 
 # 2. Background
 
-Emergency Departments (EDs) are an essential part of the healthcare system, as they provide immediate care to patients with urgent and critical medical needs. However, long wait times in emergency departments are a common problem and can negatively affect patient satisfaction, quality of care, and overall hospital efficiency.
+Credit card default is a significant financial risk faced by banks and financial institutions worldwide. When customers fail to make timely payments on their credit card balances, it can lead to financial losses, increased operational costs, and reduced profitability for lenders. Accurately identifying customers who are likely to default is therefore critical for effective credit risk management.
 
-Emergency department wait times can be influenced by many factors such as hospital location, patient volume, reporting period, and operational efficiency. Understanding these factors is important for hospitals and healthcare policymakers who want to improve patient flow and reduce delays.
+With the increasing availability of large-scale financial datasets, machine learning techniques have become an important tool for predicting credit risk. By analyzing historical customer information such as credit limits, repayment history, billing amounts, and payment behavior, supervised learning models can be trained to estimate the probability of future default.
 
-The goal of this project is to analyze emergency department wait time data published by the Centers for Medicare & Medicaid Services (CMS) and use supervised regression techniques to predict average emergency department wait times. By building regression models using publicly available hospital-level data, this project aims to identify patterns and key factors associated with longer wait times.
+The objective of this project is to develop supervised machine learning models to predict whether a credit card customer will default on their payment in the following month. Using a publicly available dataset containing anonymized and numeric customer-level financial data, this project aims to compare multiple traditional machine learning classification models and identify the most important factors associated with credit card default.
+
+This project focuses exclusively on supervised learning methods, making it well-suited for interpretable modeling and practical financial decision-making.
+
+---
 
 ## Research Questions
 
-1. Can hospital-level CMS data be used to predict emergency department wait times?
-2. How do emergency department wait times vary across hospitals and regions?
-3. Which factors are most strongly associated with longer emergency department wait times?
-4. How well do different regression models perform in predicting ED wait times?
+1. Can historical credit card customer data be used to accurately predict default risk using supervised machine learning models?
+2. Which customer attributes and payment behaviors are most strongly associated with credit card default?
+3. How do different supervised classification models compare in terms of predictive performance?
+4. What evaluation metrics are most appropriate for assessing default prediction models in a financial risk context?
 
 ---
 
@@ -38,72 +41,79 @@ The goal of this project is to analyze emergency department wait time data publi
 
 ## Data Source
 
-The dataset used in this project is the **CMS Hospital Timely and Effective Care – Hospital** dataset.  
-This dataset is publicly available and published by the Centers for Medicare & Medicaid Services (CMS).
+The dataset used in this project is the **Default of Credit Card Clients Dataset**, originally published by the UCI Machine Learning Repository.  
+This dataset contains anonymized financial and demographic information for credit card clients and is widely used for academic research in credit risk modeling.
 
-Due to GitHub file size limitations, the raw dataset is not included in this repository.  
-The dataset can be accessed and downloaded from the following link:
+For this project, a **CSV-formatted mirror version of the dataset available on Kaggle** was used for data access and implementation.  
+The Kaggle version is a direct mirror of the original UCI dataset and contains the same observations, features, and target variable without modification.
 
-https://data.cms.gov/provider-data/dataset/yv7e-xc69
+The dataset was accessed from the following Kaggle link:
 
+https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset
 ---
 
 ## Data Size
 
-- Approximate file size: **34 MB**
-- Number of rows: **138,182**
-- Number of columns: **16**
+- Number of rows: **30,000**
+- Number of columns: **23**
+- File size: Approximately **5 MB**
+
+This dataset is sufficiently large to support robust supervised machine learning modeling and cross-validation.
 
 ---
 
 ## Time Period
 
-The dataset contains hospital performance measures reported over recent years.  
-Each record is associated with a specific reporting period defined by a start date and end date.
+The dataset contains credit card payment information recorded over a **six-month historical period** for each customer.  
+The target variable indicates whether the customer defaulted in the **following month**, making this a forward-looking prediction task.
 
 ---
 
 ## Unit of Analysis
 
-Each row in the dataset represents a **hospital-level performance measure** for a specific hospital and reporting period.  
-The data is aggregated at the hospital level and does not include any patient-level or personally identifiable information.
+Each row in the dataset represents an **individual credit card customer**.  
+The dataset is fully anonymized and does not contain any personally identifiable information.
 
 ---
 
 ## Data Dictionary (Key Columns)
 
-| Column Name | Data Type | Description | Possible Values |
-|------------|----------|-------------|----------------|
-| Facility ID | Categorical | Unique identifier for each hospital | Alphanumeric |
-| Facility Name | Categorical | Name of the hospital | Text |
-| City/Town | Categorical | City where the hospital is located | Text |
-| State | Categorical | U.S. state of the hospital | State abbreviations |
-| ZIP Code | Numeric | ZIP code of the hospital | Integers |
-| County/Parish | Categorical | County or parish name | Text |
-| Condition | Categorical | Type of healthcare condition | Emergency Department, others |
-| Measure ID | Categorical | CMS identifier for the measure | Alphanumeric |
-| Measure Name | Categorical | Description of the performance measure | Text |
-| Score | Numeric / Categorical | Reported performance value | Minutes, text values |
-| Sample | Numeric / Categorical | Sample size used for the measure | Numeric or “Not Available” |
-| Start Date | Date | Beginning of reporting period | Date |
-| End Date | Date | End of reporting period | Date |
+| Column Name | Data Type | Description |
+|------------|----------|-------------|
+| LIMIT_BAL | Numeric | Credit limit assigned to the customer |
+| AGE | Numeric | Age of the customer in years |
+| SEX | Numeric | Gender of the customer (encoded numerically) |
+| EDUCATION | Numeric | Education level (encoded numerically) |
+| MARRIAGE | Numeric | Marital status (encoded numerically) |
+| PAY_0 to PAY_6 | Numeric | Repayment status for the past six months |
+| BILL_AMT1 to BILL_AMT6 | Numeric | Monthly bill amounts for the past six months |
+| PAY_AMT1 to PAY_AMT6 | Numeric | Monthly payment amounts for the past six months |
+| default.payment.next.month | Binary | Indicates whether the customer defaulted (1) or not (0) |
+
+All features in the dataset are numeric, making it well-suited for traditional supervised machine learning techniques.
 
 ---
 
 ## Target Variable
 
-The target variable for this project will be the **average emergency department wait time**, measured in minutes.  
-This value will be obtained from the `Score` column after filtering the dataset to include only emergency department wait time measures.
+The target variable for this project is:
+
+**`default.payment.next.month`**
+
+- `0` indicates that the customer did not default
+- `1` indicates that the customer defaulted on their payment in the following month
+
+This binary outcome defines a supervised classification problem.
 
 ---
 
 ## Feature Variables
 
-Potential feature variables for the regression models include:
+The feature variables used for model training include:
 
-- Hospital location (state, county, ZIP code)
-- Reporting time period (derived from start and end dates)
-- Emergency department volume indicators
-- Sample size of reported measures
+- Credit limit and demographic information
+- Historical repayment status indicators
+- Monthly billing amounts
+- Monthly payment amounts
 
-These variables will be processed and encoded as needed before building regression models.
+These features capture customer financial behavior and credit usage patterns over time. Feature scaling and preprocessing will be applied as required by specific machine learning models.
