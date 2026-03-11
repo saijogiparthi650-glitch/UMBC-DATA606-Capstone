@@ -117,3 +117,45 @@ The feature variables used for model training include:
 - Monthly payment amounts
 
 These features capture customer financial behavior and credit usage patterns over time. Feature scaling and preprocessing will be applied as required by specific machine learning models.
+
+---
+
+# 4. Exploratory Data Analysis (EDA)
+
+Exploratory Data Analysis (EDA) was conducted using a Jupyter Notebook to understand the structure, quality, and relationships within the dataset before building machine learning models. Python libraries including **Pandas** and **Plotly Express** were used for data manipulation and visualization.
+
+## Data Preparation
+
+The dataset originally included a unique identifier column (`ID`). Since this column does not contain predictive information, it was removed prior to analysis. The final dataset contains **23 feature variables and one target variable**, focusing on customer demographics, credit limits, repayment behavior, billing amounts, and payment amounts.
+
+## Summary Statistics
+
+Summary statistics were generated using Pandas (`describe()`) to examine the distribution and range of numerical variables such as credit limits, billing amounts, payment amounts, and customer age. This step provided insight into the central tendency and variability of key financial features.
+
+## Target Variable Distribution
+
+The target variable **`default.payment.next.month`** indicates whether a customer defaulted on their credit card payment in the following month. Frequency analysis and visualizations show that most customers did **not default**, indicating a moderately imbalanced classification problem.
+
+## Feature Exploration
+
+Visualizations were created using **Plotly Express** to explore the distribution and relationships of key variables. Histograms were used to examine variables such as **credit limit (`LIMIT_BAL`)** and **customer age (`AGE`)**, while boxplots were used to compare feature distributions between default and non-default customers. Categorical variables including **gender, education level, and marital status** were also visualized to understand the demographic composition of the dataset.
+
+## Correlation Analysis
+
+A correlation matrix was generated to examine relationships between variables. The analysis shows strong relationships among billing and payment variables across multiple months. Repayment status variables such as `PAY_0` and `PAY_2` exhibit stronger relationships with the default variable compared to demographic features, suggesting that past payment behavior is an important predictor of credit card default.
+
+## Data Quality Assessment
+
+The dataset was evaluated for common data quality issues. No missing values were detected. However, **35 duplicate rows** were identified and removed to ensure that each observation represents a unique customer.
+
+## Data Structure
+
+The dataset follows a **tidy data structure**, where each row represents a single customer and each column represents a specific attribute. Therefore, no additional restructuring operations such as splitting, merging, pivoting, or melting were required.
+
+## External Data Considerations
+
+External data sources such as socioeconomic indicators were considered but not incorporated, as the dataset already contains detailed financial and behavioral variables sufficient for this analysis.
+
+## Summary
+
+The exploratory analysis confirms that the dataset is clean, well-structured, and suitable for machine learning modeling. Initial findings suggest that **historical payment behavior is a key factor associated with credit card default risk**.
