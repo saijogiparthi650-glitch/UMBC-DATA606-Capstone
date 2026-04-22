@@ -1,6 +1,6 @@
 # Sai Vara Prasad Jogiparthi
 
-<img src="docs/photo.jpeg" alt="Sai Vara Prasad Jogiparthi" width="500" />
+<img src="photo.jpeg" alt="Sai Vara Prasad Jogiparthi" width="500" />
 
 📍 Baltimore, MD  
 📞 +1 (248) 843-7974  
