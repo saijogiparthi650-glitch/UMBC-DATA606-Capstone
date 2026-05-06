@@ -4,7 +4,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # LOAD MODEL
-model = joblib.load("xgboost_model.pkl")
+model = joblib.load("app/xgboost_model.pkl")
 
 # TITLE
 st.title("💳 Credit Default Prediction App")
