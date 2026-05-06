@@ -18,7 +18,7 @@ https://www.linkedin.com/in/sai-vara-prasad-jogiparthi/
 https://docs.google.com/presentation/d/e/2PACX-1vRdqy-dE-sWMFEmpXQ0W5YVn2Lq4ZvsRmJz3T4arNuClxyoo_hxff5P762zV9vP-BTSvbr22oHic82j/pub?start=false&loop=false&delayms=3000
 
 **YouTube Video:**  
-
+https://youtu.be/zoaPDaGhoqY
 
 ---
 
@@ -137,7 +137,7 @@ EDA was performed using Python (Pandas, Plotly Express).
 
 ## Best Model
 
-**XGBoost Classifier** performed the best.
+**XGBoost** achieved the best overall performance among all tested models due to its ability to handle complex relationships and feature interactions effectively.
 
 ### Performance:
 - Accuracy: ~75%  
@@ -173,7 +173,8 @@ This project demonstrates that machine learning can effectively predict credit c
 - Built and compared multiple ML models  
 - Identified XGBoost as the best-performing model  
 - Found payment history to be the most important factor  
-- Developed a working Streamlit application  
+- Developed a working Streamlit application
+- Deployed the application to the cloud   
 
 ## Limitations
 
@@ -183,8 +184,7 @@ This project demonstrates that machine learning can effectively predict credit c
 ## Future Work
 
 - Apply SMOTE or class balancing techniques  
-- Improve model tuning  
-- Deploy application to cloud  
+- Improve model tuning   
 - Add explainability (SHAP)  
 
 ---
